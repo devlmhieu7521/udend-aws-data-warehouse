@@ -21,4 +21,26 @@ Create a job to extract data and then transform them.
 ### Results
 
 After create external tables on Glue Data Catalog which can read data from S3 using Athena, there are some screenshot of Landing data about Customer, Accelerometer, and Step Trainer:
+**customer_landing**
 ![customer_landing](./image/customer_landing.png)
+
+**accelerometer_landing**
+![customer_landing](./image/accelerometer_landing.png)
+
+**step_trainer_landing**
+![customer_landing](./image/step_trainer_landing.png)
+
+#### Row count check
+
+**Landing**
+![count_landing](./image/count_landing.png)
+
+**Trusted**
+![count_trusted](./image/count_trusted.png)
+
+**curated**
+![count_curated](./image/count_curated.png)
+
+#### Customer trusted check column share research all have data in this columns
+
+![count_curated](./image/customer_trusted_public_research_is_null.png)
