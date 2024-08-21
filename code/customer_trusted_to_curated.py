@@ -30,6 +30,7 @@ Join_node1724077834444 = Join.apply(frame1=AWSGlueDataCatalog_node1724077809279,
 # Script generated for node Filter Customer Curated
 SqlQuery0 = '''
 select
+    distinct
     customername,
     email,
     phone,
@@ -45,7 +46,7 @@ from myDataSource
 FilterCustomerCurated_node1724077853560 = sparkSqlQuery(glueContext, query = SqlQuery0, mapping = {"myDataSource":Join_node1724077834444}, transformation_ctx = "FilterCustomerCurated_node1724077853560")
 
 # Script generated for node Customer Curated
-CustomerCurated_node1724078033687 = glueContext.getSink(path="s3://hieulm-lake-house/customer/trusted/", connection_type="s3", updateBehavior="UPDATE_IN_DATABASE", partitionKeys=[], enableUpdateCatalog=True, transformation_ctx="CustomerCurated_node1724078033687")
+CustomerCurated_node1724078033687 = glueContext.getSink(path="s3://hieulm-lake-house/customer/curated/", connection_type="s3", updateBehavior="UPDATE_IN_DATABASE", partitionKeys=[], enableUpdateCatalog=True, transformation_ctx="CustomerCurated_node1724078033687")
 CustomerCurated_node1724078033687.setCatalogInfo(catalogDatabase="stedi_project_hieulm",catalogTableName="customer_curated")
 CustomerCurated_node1724078033687.setFormat("json")
 CustomerCurated_node1724078033687.writeFrame(FilterCustomerCurated_node1724077853560)
